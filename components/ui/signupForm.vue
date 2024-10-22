@@ -159,19 +159,28 @@ export default {
     },
     async registerUser () {
       if (this.user.password === this.confirmPassword) {
+        const formData = new FormData()
+        for (const key in this.user) {
+          if (key === 'image') {
+            if (this.user.image) {
+              formData.append(key, this.user.image)
+            }
+          } else {
+            formData.append(key, this.user[key])
+          }
+        }
         // eslint-disable-next-line no-console
         console.log('@Nint user =>', this.user)
-        const response = await this.$axios.post('/employee/create', this.user, {
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        })
+        const response = await this.$axios.post('/employee/create', formData)
         // eslint-disable-next-line no-console
         console.log('@Nint response =>', response)
+        if (response.data.success) {
+          this.user = {}
+          this.$router.push('/')
+        }
       }
     }
   }
-
 }
 </script>
 
