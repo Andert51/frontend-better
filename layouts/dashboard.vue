@@ -15,7 +15,7 @@
           </v-list-item-avatar>
 
           <v-list-item-content>
-            <v-list-item-title>Andres Torres</v-list-item-title>
+            <v-list-item-title>Andert</v-list-item-title>
             <v-list-item-subtitle>Logged In</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
