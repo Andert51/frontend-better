@@ -47,9 +47,11 @@ jobs:
         run: npm run build
 
       - name: Deploy to Azure Static Web Apps 🚀
-        uses: azure/static-web-apps-deploy@v1
+        id: buildeploy
+        uses: Azure/static-web-apps-deploy@v1
         with:
           app_location: "/"
+          api_location: ".output/server"
           output_location: "dist"
 
 
