@@ -43,3 +43,14 @@ jobs:
       - name: Run linter 👀
         run: npm run lint
 
+      - name: Build application 🏗️
+        run: npm run build
+
+      - name: Deploy to Azure Static Web Apps 🚀
+        uses: azure/static-web-apps-deploy@v1
+        with:
+          app_location: "/"
+          output_location: "dist"
+
+
+
