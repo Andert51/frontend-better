@@ -73,6 +73,9 @@ export default {
         })
         // eslint-disable-next-line no-console
         console.log('@res =>', res)
+        if (res.data.success) {
+          this.$router.push('/dashboard')
+        }
       } catch (error) {
         this.errorMessage = error
       }
